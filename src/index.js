@@ -1,0 +1,195 @@
+/*let nombres = "Tadeo Gaviria";
+var edades = 20;
+const cualquiercosa = 30;
+let activo = true;
+let variablenula = null;
+let indefinido;
+//cualquiercosa = "Alvaro";
+
+console.log(nombres);
+console.log(edades);
+console.log(cualquiercosa);
+
+console.log(typeof activo);
+console.log(typeof variablenula);
+console.log(typeof indefinido);
+
+console.log(10 + 5);
+
+console.log(10 == "10");
+console.log(10 === "10");
+
+let mensaje = edades >= 20 ? "Mayor de edad" : "Menor de edad";
+console.log(mensaje);
+
+function saludar(nombre) {
+  //console.log(`Hola ${nombre}`);
+  return "Hola " + nombre;
+}
+
+function golpear(nombres) {
+  return "puño para "+ nombres;
+}
+
+console.log(saludar(nombres));
+console.log(golpear(nombres));
+
+const sumar = (a, b) => a + b;
+
+console.log(sumar(500, 200));
+
+let frutas = ["Manzana", "Banano", "Pera"];
+
+console.log(frutas);
+
+frutas.push("Naranja");
+frutas.push("Guanabana");
+frutas.push("Fresa");
+
+console.log(frutas);
+
+frutas.pop();
+
+console.log(frutas);
+
+console.log(frutas.length);
+
+//let filtrar = frutas.filter((f) => f.startsWith("M"));
+let filtrar = frutas.filter((f) => f.endsWith("a"));
+console.log(filtrar);
+
+let personas = [];
+let persona = {
+  nombre: "Tadeo",
+  edad: 20,
+  saludar: function () {
+    console.log(`Hola ${this.nombre}, edad ${this.edad}`); // Usar this.nombre y this.edad
+  },
+};
+
+personas.push({
+  nombre: "Tadeo",
+});
+
+console.log(personas);
+
+persona.saludar(); 
+
+persona.nombre = "Tadeo Gaviria";
+
+console.log(persona);
+
+const { nombre, edad } = persona;
+
+console.log(persona.nombre);
+console.log(nombre);*/
+
+
+// function esperar() {
+//   return new Promise((resolver) => {
+//     setTimeout(() => {
+//       resolver("Hecho");
+//     }, 2000);
+//   });
+// }
+
+// async function ejecutar() {
+//   console.log("Esperando...");
+//   let resultado = await esperar();
+//   console.log(resultado);
+// }
+
+// ejecutar();
+// let elemento = document.getElementById("boton");
+// console.log(elemento);
+
+// elemento.addEventListener("click", () => {
+//   alert("Hola mundo!!!");
+// });
+
+/*fetch("https://jsonplaceholder.typicode.com/posts")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
+*/
+
+// async function llamarapi() {
+//   try {
+//     let respuesta = await fetch(
+//       "https://jsonplaceholder.typicode.com/posts"
+//     ).then((response) => response.json());
+//     console.log(respuesta);
+//   } catch (error) {
+//     console.log("Error al obtener los datos" + error);
+//   }
+// }
+
+// class Animal {
+//   constructor(nombre) {
+//     this.nombre = nombre;
+//   }
+
+//   hacerSonido() {
+//     console.log(this.nombre + " hace sonido");
+//   }
+// }
+
+// let perro = new Animal("Gato");
+// perro.hacerSonido();
+
+// localStorage.setItem("usuario", "Juan");
+// console.log(localStorage.getItem("usuario"));
+
+function obtenerNumeros(boton) {
+  const fila = boton.parentElement;
+  const num1 = parseFloat(fila.querySelector(".numero1").value);
+  const num2 = parseFloat(fila.querySelector(".numero2").value);
+  return { num1, num2 };
+}
+
+// Función para mostrar el resultado
+function mostrarResultado(resultado) {
+  document.getElementById("resultado").textContent = resultado;
+}
+
+// Función para limpiar los campos y el resultado
+function limpiarCampos() {
+  // Limpia todos los campos de entrada
+  document.querySelectorAll(".numero1, .numero2").forEach((input) => {
+      input.value = "";
+  });
+  // Limpia el resultado
+  mostrarResultado("");
+}
+
+// Sumar
+document.getElementById("sumar").addEventListener("click", () => {
+  const { num1, num2 } = obtenerNumeros(document.getElementById("sumar"));
+  mostrarResultado(num1 + num2);
+});
+
+// Restar
+document.getElementById("restar").addEventListener("click", () => {
+  const { num1, num2 } = obtenerNumeros(document.getElementById("restar"));
+  mostrarResultado(num1 - num2);
+});
+
+// Multiplicar
+document.getElementById("multiplicar").addEventListener("click", () => {
+  const { num1, num2 } = obtenerNumeros(document.getElementById("multiplicar"));
+  mostrarResultado(num1 * num2);
+});
+
+// Dividir
+document.getElementById("dividir").addEventListener("click", () => {
+  const { num1, num2 } = obtenerNumeros(document.getElementById("dividir"));
+  if (num2 === 0) {
+      mostrarResultado("Error: División por cero");
+  } else {
+      mostrarResultado(num1 / num2);
+  }
+});
+
+// Limpiar campos
+document.getElementById("limpiar").addEventListener("click", limpiarCampos);
