@@ -141,55 +141,52 @@ console.log(nombre);*/
 // localStorage.setItem("usuario", "Juan");
 // console.log(localStorage.getItem("usuario"));
 
-function obtenerNumeros(boton) {
-  const fila = boton.parentElement;
-  const num1 = parseFloat(fila.querySelector(".numero1").value);
-  const num2 = parseFloat(fila.querySelector(".numero2").value);
+function obtenerNumeros() {
+  const num1 = parseFloat(document.getElementById("numero1").value);
+  const num2 = parseFloat(document.getElementById("numero2").value);
   return { num1, num2 };
 }
 
-// Función para mostrar el resultado
+
 function mostrarResultado(resultado) {
   document.getElementById("resultado").textContent = resultado;
 }
 
-// Función para limpiar los campos y el resultado
+
 function limpiarCampos() {
-  // Limpia todos los campos de entrada
-  document.querySelectorAll(".numero1, .numero2").forEach((input) => {
-      input.value = "";
-  });
-  // Limpia el resultado
+  document.getElementById("numero1").value = "";
+  document.getElementById("numero2").value = "";
   mostrarResultado("");
 }
 
-// Sumar
-document.getElementById("sumar").addEventListener("click", () => {
-  const { num1, num2 } = obtenerNumeros(document.getElementById("sumar"));
-  mostrarResultado(num1 + num2);
-});
 
-// Restar
-document.getElementById("restar").addEventListener("click", () => {
-  const { num1, num2 } = obtenerNumeros(document.getElementById("restar"));
-  mostrarResultado(num1 - num2);
-});
+function calcular() {
+  const { num1, num2 } = obtenerNumeros();
+  const operacion = document.getElementById("operacion").value;
 
-// Multiplicar
-document.getElementById("multiplicar").addEventListener("click", () => {
-  const { num1, num2 } = obtenerNumeros(document.getElementById("multiplicar"));
-  mostrarResultado(num1 * num2);
-});
-
-// Dividir
-document.getElementById("dividir").addEventListener("click", () => {
-  const { num1, num2 } = obtenerNumeros(document.getElementById("dividir"));
-  if (num2 === 0) {
-      mostrarResultado("Error: División por cero");
-  } else {
-      mostrarResultado(num1 / num2);
+  let resultado;
+  switch (operacion) {
+      case "sumar":
+          resultado = num1 + num2;
+          break;
+      case "restar":
+          resultado = num1 - num2;
+          break;
+      case "multiplicar":
+          resultado = num1 * num2;
+          break;
+      case "dividir":
+          resultado = num2 !== 0 ? num1 / num2 : "Error: División por cero";
+          break;
+      default:
+          resultado = "Operación no válida";
   }
-});
 
-// Limpiar campos
+  mostrarResultado(resultado);
+}
+
+
+document.getElementById("calcular").addEventListener("click", calcular);
+
+
 document.getElementById("limpiar").addEventListener("click", limpiarCampos);
