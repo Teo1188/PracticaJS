@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeDex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-red-600 via-red-700 to-red-800 min-h-screen flex flex-col items-center p-8">
+    <h1 class="text-4xl font-bold text-white mb-6">POKEDEX</h1>
+    <input type="text" id="searchInput" placeholder="Search Pokemon" class="border p-3 w-full max-w-md mb-6 focus:outline-none focus:ring-2 focus:ring-yellow-400" onkeyup="filterPokemon()">
+    <div id="pokemonList" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-6xl"></div></div>
+    <script src="./app.js"></script>
+</body>
+</html>
