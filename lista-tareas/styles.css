@@ -1,59 +1,126 @@
+/* Estilos generales */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4f4;
-  }
-  
-  .contenedor {
-    margin-top: 50px;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
-    display: inline-block;
-    width: 300px;
-    border-radius: 10px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    padding: 10px;
-    background: #dcdcdcdc;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  li span {
-    flex-grow: 1;
-    margin-right: 10px;
-  }
-  
-  li .botones {
-    display: flex;
-    gap: 5px;
-  }
-  
-  li button {
-    padding: 5px 10px;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-  
-  li button.edit {
-    background: #4caf50;
-  }
-  
-  li button.delete {
-    background: #ff5c5c;
-  }
-  
-  .complete {
-    text-decoration: line-through;
-    color: rgb(23, 206, 96);
-  }
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* Fondo degradado azul */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Contenedor principal */
+.contenedor {
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+}
+
+h1 {
+  color: #2a5298; /* Azul oscuro */
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Input y botón */
+#taskInput {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border: 2px solid #2a5298;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#taskInput:focus {
+  border-color: #1e3c72; /* Azul más oscuro al enfocar */
+}
+
+#addBtn {
+  width: 100%;
+  padding: 10px;
+  background-color: #2a5298; /* Azul oscuro */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#addBtn:hover {
+  background-color: #1e3c72; /* Azul más oscuro al hacer hover */
+}
+
+/* Lista de tareas */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+li:hover {
+  transform: translateY(-2px); /* Efecto de levantar al hacer hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+li span {
+  flex-grow: 1;
+  margin-right: 10px;
+  color: #333; /* Color de texto oscuro */
+  font-size: 16px;
+}
+
+li .botones {
+  display: flex;
+  gap: 5px;
+}
+
+li button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+li button.edit {
+  background-color: #3abb9f;
+}
+
+li button.edit:hover {
+  background-color: #247c8b; 
+}
+
+li button.delete {
+  background-color: #0f57c4; 
+}
+
+li button.delete:hover {
+  background-color: #041a7e;
+}
+
+
+.complete {
+  text-decoration: line-through;
+  color: #0e9ba0; 
+}
